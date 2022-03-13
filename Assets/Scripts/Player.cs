@@ -6,9 +6,9 @@ public class Player : MonoBehaviour
 {
     private Rigidbody2D rig;
     private Vector2 _direction;
-
     private float initialSpeed;
     private bool _isRunning;
+    private bool _isRolling;
 
     public float speed;
     public float run_Speed;
@@ -20,16 +20,20 @@ public class Player : MonoBehaviour
         obs: ateção ao padrao de nomeclatura das variaveis;*/
     public Vector2 Direction
     {
-        
         get { return _direction; }
         set { _direction = value; }
     }
 
     public bool IsRunning
     {
-
         get { return _isRunning; }
         set { _isRunning = value; }
+    }
+
+    public bool IsRolling
+    {
+        get { return _isRolling; }
+        set { _isRolling = value; }
     }
 
     #endregion
@@ -44,6 +48,7 @@ public class Player : MonoBehaviour
     {
         Move();
         Run();
+        Rolling();
     }
 
     private void FixedUpdate()
@@ -71,6 +76,19 @@ public class Player : MonoBehaviour
         {
             speed = initialSpeed;
             IsRunning = false;
+        }
+    }
+
+    void Rolling()
+    {
+        if (Input.GetButtonDown("Fire2"))
+        {
+            IsRolling = true;
+        }
+
+        if (Input.GetButtonUp("Fire2"))
+        {
+            IsRolling = false;
         }
     }
 

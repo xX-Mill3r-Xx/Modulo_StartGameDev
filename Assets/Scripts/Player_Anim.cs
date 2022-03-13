@@ -17,6 +17,7 @@ public class Player_Anim : MonoBehaviour
     {
         Movement();
         Running();
+        Rolling();
     }
 
     #region Movimentação;
@@ -26,7 +27,14 @@ public class Player_Anim : MonoBehaviour
         //Este Metodo checa se o player esta ou não se movimentando;
         if (player.Direction.sqrMagnitude > 0) //se for maior que zero, player se move;
         {
-            anim.SetInteger("base", 1);
+            if (player.IsRolling)
+            {
+                anim.SetInteger("base", 3);
+            }
+            else
+            {
+                anim.SetInteger("base", 1);
+            }
         }
         else
         {
@@ -48,6 +56,14 @@ public class Player_Anim : MonoBehaviour
         if (player.IsRunning)
         {
             anim.SetInteger("base", 2);
+        }
+    }
+
+    void Rolling()
+    {
+        if (player.IsRolling)
+        {
+            anim.SetInteger("base", 3);
         }
     }
 
