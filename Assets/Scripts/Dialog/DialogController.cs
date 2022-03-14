@@ -29,17 +29,17 @@ public class DialogController : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     void Update()
     {
-        
+
     }
 
     IEnumerator TypeSentence()
     {
-        foreach(char letter in sentences[index].ToCharArray())
+        foreach (char letter in sentences[index].ToCharArray())
         {
             speechText.text += letter;
             yield return new WaitForSeconds(typingSpeed);
@@ -50,6 +50,22 @@ public class DialogController : MonoBehaviour
     public void NextSentence()
     {
 
+        if (speechText.text == sentences[index])
+        {
+            if (index < sentences.Length - 1)
+            {
+                index++;
+                speechText.text = "";
+                StartCoroutine(TypeSentence());
+            }
+            else
+            {
+                speechText.text = "";
+                index = 0;
+                dialogObj.SetActive(false);
+                sentences = null;
+            }
+        }
     }
 
     //chamar a fala do NPC

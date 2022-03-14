@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NPC_Dialog : MonoBehaviour
 {
+    private List<string> sentences = new List<string>();
     private bool playerHit;
 
     public DialogSettings dialog;
@@ -12,14 +13,22 @@ public class NPC_Dialog : MonoBehaviour
 
     void Start()
     {
-        
+        GetNpcInfo();
     }
 
     void Update()
     {
         if (Input.GetButtonDown("Fire3") && playerHit)
         {
-            DialogController.instance.Speech();
+            DialogController.instance.Speech(sentences.ToArray());
+        }
+    }
+
+    void GetNpcInfo()
+    {
+        for(int i = 0; i < dialog.dialogs.Count; i++)
+        {
+            sentences.Add(dialog.dialogs[i].sentence.portugues);
         }
     }
 
@@ -35,12 +44,10 @@ public class NPC_Dialog : MonoBehaviour
         if(hit != null)
         {
             playerHit = true;
-            Debug.Log("Detectou");
         }
         else
         {
             playerHit = false;
-            Debug.Log("Não detectou");
         }
     }
 
