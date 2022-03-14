@@ -13,6 +13,12 @@ MonoBehaviour:
   m_Name: NPC_1
   m_EditorClassIdentifier: 
   actor: {fileID: 2130902729194343878, guid: d808c74ec54a6d0499f940e7a4b0eb7c, type: 3}
-  speakerSprite: {fileID: -8091321643688609963, guid: bf648b95fd85df84987c14a2c1d322c6, type: 3}
-  sentence: Hello, World!
-  dialogs: []
+  speakerSprite: {fileID: 0}
+  sentence: 
+  dialogs:
+  - actorName: 
+    profile: {fileID: -8091321643688609963, guid: bf648b95fd85df84987c14a2c1d322c6, type: 3}
+    sentence:
+      portugues: "Ol\xE1,Mundo!"
+      english: 
+      spanish: 
