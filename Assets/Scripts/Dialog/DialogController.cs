@@ -5,6 +5,16 @@ using UnityEngine.UI;
 
 public class DialogController : MonoBehaviour
 {
+    [System.Serializable]
+    public enum Idioma
+    {
+        pt,
+        eng,
+        spa
+    }
+
+    public Idioma language;
+
     public static DialogController instance;
 
     [Header("Components")]
@@ -64,6 +74,7 @@ public class DialogController : MonoBehaviour
                 index = 0;
                 dialogObj.SetActive(false);
                 sentences = null;
+                isShowing = false;
             }
         }
     }

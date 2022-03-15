@@ -26,9 +26,22 @@ public class NPC_Dialog : MonoBehaviour
 
     void GetNpcInfo()
     {
-        for(int i = 0; i < dialog.dialogs.Count; i++)
+        for (int i = 0; i < dialog.dialogs.Count; i++)
         {
-            sentences.Add(dialog.dialogs[i].sentence.portugues);
+            switch (DialogController.instance.language)
+            {
+                case DialogController.Idioma.pt:
+                    sentences.Add(dialog.dialogs[i].sentence.portugues);
+                    break;
+
+                case DialogController.Idioma.eng:
+                    sentences.Add(dialog.dialogs[i].sentence.english);
+                    break;
+
+                case DialogController.Idioma.spa:
+                    sentences.Add(dialog.dialogs[i].sentence.spanish);
+                    break;
+            }
         }
     }
 
@@ -41,7 +54,7 @@ public class NPC_Dialog : MonoBehaviour
     void ShowDialog()
     {
         Collider2D hit = Physics2D.OverlapCircle(transform.position, dialogRange, playerLayer);
-        if(hit != null)
+        if (hit != null)
         {
             playerHit = true;
         }

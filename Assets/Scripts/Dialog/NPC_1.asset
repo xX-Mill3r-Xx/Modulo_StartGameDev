@@ -20,5 +20,5 @@ MonoBehaviour:
     profile: {fileID: -8091321643688609963, guid: bf648b95fd85df84987c14a2c1d322c6, type: 3}
     sentence:
       portugues: E ai Forasteiro. Tudo Bem com Voce?
-      english: 
-      spanish: 
+      english: hello, world?
+      spanish: hola, que tal?
