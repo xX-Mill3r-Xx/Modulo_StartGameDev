@@ -27,7 +27,7 @@ public class DialogController : MonoBehaviour
     public float typingSpeed; //velocidade da fala
 
     //variaveis de controle
-    private bool isShowing; // se a janela esta vizivel
+    [HideInInspector] public bool isShowing; // se a janela esta vizivel
     private int index; // pra saber a quantidade de falas do NPC
     private string[] sentences;
 
